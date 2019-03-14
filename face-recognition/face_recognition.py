@@ -73,8 +73,7 @@ def process_images_in_process_pool(images_to_check, known_names, known_face_enco
         processes = None
     else:
         processes = number_of_cpus
-
-    # macOS will crash due to a bug in libdispatch if you don't use 'forkserver'
+        
     context = multiprocessing
     if "forkserver" in multiprocessing.get_all_start_methods():
         context = multiprocessing.get_context("forkserver")
